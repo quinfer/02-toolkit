@@ -1,32 +1,38 @@
 ---
-title: "Advanced Financial Data Analytics" 
-subtitle: "Toolkit"
+title: "Toolkit + Returns" 
+subtitle: "Advanced Financial Data Analytics"
 author: "Barry Quinn"
 date: "`r Sys.Date()`"
 css: mycssblend.css
-format: revealjs
+format:  
+  revealjs:
+    title-slide-style: pandoc
 ---
 
+## Outline
 
 
-# Reproducible data analysis
+## Reproducible financial analytics
 
-## Reproducibility checklist
+[What does it mean for a data analysis to be "reproducible"?]{.content-box-red}
 
-.large\[ What does it mean for a data analysis to be "reproducible"?\]
-
-Near-term goals:
+::: columns
+::: column
+[Near-term goals:]{.content-box-blue}
 
 -   Are the tables and figures reproducible from the code and data?
 -   Does the code actually do what you think it does?
 -   In addition to what was done, is it clear *why* it was done?
-
-Long-term goals:
+:::
+::: column
+[Long-term goals:]{.content-box-yellow}
 
 -   Can the code be used for other data?
 -   Can you extend the code to do other things?
+:::
+:::
 
-## Toolkit for reproducibility
+## Toolkitfor reproducibility
 
 -   Scriptability $\rightarrow$ R
 -   Literate programming (code, narrative, output in one place)
