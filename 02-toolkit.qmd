@@ -1,0 +1,304 @@
+---
+title: "Advanced Financial Data Analytics" 
+subtitle: "Toolkit"
+author: "Barry Quinn"
+date: "`r Sys.Date()`"
+css: mycssblend.css
+format: revealjs
+---
+
+
+
+# Reproducible data analysis
+
+## Reproducibility checklist
+
+.large\[ What does it mean for a data analysis to be "reproducible"?\]
+
+Near-term goals:
+
+-   Are the tables and figures reproducible from the code and data?
+-   Does the code actually do what you think it does?
+-   In addition to what was done, is it clear *why* it was done?
+
+Long-term goals:
+
+-   Can the code be used for other data?
+-   Can you extend the code to do other things?
+
+## Toolkit for reproducibility
+
+-   Scriptability $\rightarrow$ R
+-   Literate programming (code, narrative, output in one place)
+    $\rightarrow$ Quarto
+-   Version control $\rightarrow$ Git / GitHub
+
+## R and Posit IDE
+
+## R packages
+
+-   **Packages** are the fundamental units of reproducible R code. They
+    include reusable R functions, the documentation that describes how
+    to use them, and sample data<sup>1</sup>
+
+-   As of September 2020, there are over 16,000 R packages available on
+    **CRAN** (the Comprehensive R Archive Network)<sup>2</sup>
+
+-   We're going to work with a small (but important) subset of these!
+
+\[ <sup>1</sup> Wickham and Bryan, [R Packages](https://r-pkgs.org/).
+
+<sup>2</sup> [CRAN contributed
+packages](https://cran.r-project.org/web/packages/). \]{.footnote}
+
+## Tour: R and RStudio
+
+![](img/tour-r-rstudio.png)
+
+## A short list (for now) of R essentials
+
+-   Functions are (most often) verbs, followed by what they will be
+    applied to in parentheses:
+
+```{r eval=FALSE}
+do_this(to_this)
+do_that(to_this, to_that, with_those)
+```
+
+-   Packages are installed with the `install.packages` function and
+    loaded with the `library` function, once per session:
+
+```{r eval=FALSE}
+install.packages("package_name")
+library(package_name)
+```
+
+## R essentials (continued)
+
+-   Columns (variables) in data frames are accessed with `$`:
+
+.small\[
+
+```{r eval=FALSE}
+dataframe$var_name
+```
+
+\]
+
+-   Object documentation can be accessed with `?`
+
+```{r eval=FALSE}
+?mean
+```
+
+## tidyverse
+
+.pull-left\[
+
+```{r echo=FALSE, out.width="99%"}
+knitr::include_graphics("img/tidyverse.png")
+```
+
+\]
+
+.pull-right\[ .center\[.large\[
+[tidyverse.org](https://www.tidyverse.org/)\]\]
+
+-   The **tidyverse** is an opinionated collection of R packages
+    designed for data science
+-   All packages share an underlying philosophy and a common grammar \]
+
+# Quarto
+
+.center\[.large\[ [quarto.org](https://quarto.org%60/)\]\]
+
+-   **Quarto** and the various packages that support it enable R users
+    to write their code and prose in reproducible computational
+    documents
+
+-   We will generally refer to Quarto documents (with `.qmd` extension),
+    e.g. *"Do this in your Quarto document"* and rarely discuss loading
+    the Quarto
+
+## Tour: R Markdown
+
+```{r echo=FALSE, out.width="90%"}
+knitr::include_graphics("img/tour-rmarkdown.png")
+```
+
+## Environments
+
+.acid\[ The environment of your R Markdown document is separate from the
+Console!\]
+
+Remember this, and expect it to bite you a few times as you're learning
+to work with R Markdown!
+
+## Environments
+
+.pull-left\[ First, run the following in the console
+
+.large\[
+
+```{r eval = FALSE}
+x <- 2
+x * 3
+```
+
+\]
+
+.acid\[ All looks good, eh?\] \]
+
+.pull-right\[ Then, add the following in an R chunk in your R Markdown
+document
+
+.large\[
+
+```{r eval = FALSE}
+x * 3
+```
+
+\]
+
+.acid\[ What happens? Why the error?\] \]
+
+## R Markdown help
+
+.pull-left\[ .center\[ .midi\[R Markdown Cheat Sheet\
+`Help -> Cheatsheets`\]\]
+
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("img/rmd-cheatsheet.png")
+```
+
+\] .pull-right\[ .center\[ .midi\[Markdown Quick Reference\
+`Help -> Markdown Quick Reference`\]\]
+
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("img/md-cheatsheet.png")
+```
+
+\]
+
+## How will we use R Markdown?
+
+-   Every assignment / report / project / etc. is an R Markdown document
+-   You'll always have a template R Markdown document to start with
+-   The amount of scaffolding in the template will decrease over the
+    semester
+
+## What's with all the hexes?
+
+```{r echo=FALSE, out.width="60%"}
+knitr::include_graphics("img/hex-australia.png")
+```
+
+.footnote\[ Mitchell O'Hara-Wild, [useR! 2018 feature
+wall](https://www.mitchelloharawild.com/blog/user-2018-feature-wall/)\]
+
+## Git and GitHub
+
+\[
+
+```{r echo=FALSE, out.width="25%"}
+knitr::include_graphics("img/git-logo.png")
+```
+
+-   Git is a version control system like "Track Changes" features from
+    Microsoft Word, on steroids
+-   It's not the only version control system, but it's a very popular
+    one \]{.pull-left} \[
+
+```{r echo=FALSE, out.width="25%"}
+knitr::include_graphics("img/github-logo.png")
+```
+
+-   GitHub is the home for your Git-based projects on the internet like
+    DropBox but much, much better
+
+-   We will use GitHub as a platform for web hosting and collaboration
+    (and as our course management system!) \]{.pull-right}
+
+## Versioning
+
+```{r echo=FALSE, fig.align = "center", out.width = "70%"}
+knitr::include_graphics("img/lego-steps.png")
+```
+
+## Versioning
+
+### with human readable messages
+
+```{r echo=FALSE, fig.align = "center", out.width = "60%"}
+knitr::include_graphics("img/lego-steps-commit-messages.png")
+```
+
+## Why do we need version control?
+
+```{r echo=FALSE, fig.align = "center", out.width="35%"}
+knitr::include_graphics("img/phd_comics_vc.gif")
+```
+
+## How will we use Git and GitHub?
+
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("img/whole-game-01.png")
+```
+
+## How will we use Git and GitHub?
+
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("img/whole-game-02.png")
+```
+
+## How will we use Git and GitHub?
+
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("img/whole-game-03.png")
+```
+
+## How will we use Git and GitHub?
+
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("img/whole-game-04.png")
+```
+
+# Git and GitHub tips
+
+-   There are millions of git commands ok, that's an exaggeration, but
+    there are a lot of them and very few people know them all. 99% of
+    the time you will use git to add, commit, push, and pull.
+
+-   We will be doing Git things and interfacing with GitHub through
+    RStudio, but if you google for help you might come across methods
+    for doing these things in the command line {{< fa terminal >}} skip
+    that and move on to the next resource unless you feel comfortable
+    trying it out.
+
+-   Interested in command line data science see
+    <https://www.datascienceatthecommandline.com/>
+
+-   There is a great resource for working with git and R:
+    [happygitwithr.com](http://happygitwithr.com/). Some of the content
+    in there is beyond the scope of this course, but it's a good place
+    to look for help.
+
+.your-turn\[ **Difficulty: medium**
+
+-   Create a GitHub account
+-   Verify your GitHub email
+-   Adjust your GitHub settings for a more pleasant GitHub experience
+    -   Settings \> Emails \> Uncheck "Keep my email address private"
+    -   Settings \> Emails \> Update name and photo \]
+
+.your-turn\[ **Difficulty: medium** - Go to
+[Github.com](https://github.com) and create an account using your QUB
+credentials. - Login to the [Slack
+channel](https://join.slack.com/t/rethinkingeco-3ss9716/shared_invite/zt-12nfdfr7o-XAy2Ef1knAKXgUNo2kWw3w)
+and share your username with the lecturer. - Create a new repository on
+Github called 'first repo' - Create a new project on your Q-RaP RStudio
+Cloud account by using the url of your first repo - create a Rmarkdown
+file in new RStudio project space. - Knit the Rmarkdown file to a html
+file. - Commit and push change to your Github repo.
+
+\]
