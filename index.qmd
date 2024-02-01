@@ -3,7 +3,7 @@ title: "Toolkit"
 subtitle: "Advanced Financial Data Analytics"
 author: "Barry Quinn"
 date: "`r Sys.Date()`"
-#css: mycssblend.css
+css: mycssblend.css
 execute: 
   echo: fenced
 format: 
@@ -21,12 +21,10 @@ format:
 -   Data Collection
 -   Data Processing
 -   Growth Mindset
--   Asset Returns
 
 ## Reproducible financial analytics
 
-[What does it mean for a data analysis to be
-"reproducible"?]{.content-box-red}
+[What does it mean for a data analysis to be "reproducible"?]{.content-box-red}
 
 ::: columns
 ::: column
@@ -47,25 +45,20 @@ format:
 
 ## Toolkit for reproducibility
 
-- Scriptability $\rightarrow$ R
-- Literate programming (code, narrative, output in one place) $\rightarrow$ Quarto
-  -   Version control $\rightarrow$ Git / GitHub{.incremental}
-  - ~~Version control $\rightarrow$ Git / GitHub~~
+-   Scriptability $\rightarrow$ R
+-   Literate programming (code, narrative, output in one place) $\rightarrow$ Quarto
+    -   Version control $\rightarrow$ Git / GitHub{.incremental}
+    -   ~~Version control~~ $\rightarrow$ Git / GitHub
 
 ## R packages
 
--   **Packages** are the fundamental units of reproducible R code. They
-    include reusable R functions, the documentation that describes how
-    to use them, and sample data<sup>1</sup>
+-   **Packages** are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data<sup>1</sup>
 
--   As of September 2020, there are over 16,000 R packages available on
-    **CRAN** (the Comprehensive R Archive Network)<sup>2</sup>
+-   As of September 2020, there are over 16,000 R packages available on **CRAN** (the Comprehensive R Archive Network)<sup>2</sup>
 
 -   We're going to work with a small (but important) subset of these!
 
-[<sup>1</sup> Wickham and Bryan, [R Packages](https://r-pkgs.org/).
-<sup>2</sup> [CRAN contributed
-packages](https://cran.r-project.org/web/packages/).]{.footnote}
+[<sup>1</sup> Wickham and Bryan, [R Packages](https://r-pkgs.org/). <sup>2</sup> [CRAN contributed packages](https://cran.r-project.org/web/packages/).]{.footnote}
 
 ## Tour: R and Posit IDE
 
@@ -73,16 +66,14 @@ packages](https://cran.r-project.org/web/packages/).]{.footnote}
 
 ## A short list (for now) of R essentials
 
--   Functions are (most often) verbs, followed by what they will be
-    applied to in parentheses:
+-   Functions are (most often) verbs, followed by what they will be applied to in parentheses:
 
 ```{r eval=FALSE}
 do_this(to_this)
 do_that(to_this, to_that, with_those)
 ```
 
--   Packages are installed with the `install.packages` function and
-    loaded with the `library` function, once per session:
+-   Packages are installed with the `install.packages` function and loaded with the `library` function, once per session:
 
 ```{r eval=FALSE}
 install.packages("package_name")
@@ -113,8 +104,7 @@ dataframe$var_name
 ::: column
 [Tidyverse.org](https://www.tidyverse.org/){.salt}
 
--   The **tidyverse** is an opinionated collection of R packages
-    designed for data science
+-   The **tidyverse** is an opinionated collection of R packages designed for data science
 -   All packages share an underlying philosophy and a common grammar
 :::
 :::
@@ -123,13 +113,9 @@ dataframe$var_name
 
 [quarto.org](https://quarto.org){.salt}
 
--   **Quarto** and the various packages that support it enable R users
-    to write their code and prose in reproducible computational
-    documents
+-   **Quarto** and the various packages that support it enable R users to write their code and prose in reproducible computational documents
 
--   We will generally refer to Quarto documents (with `.qmd` extension),
-    e.g. *"Do this in your Quarto document"* and rarely discuss loading
-    the Quarto
+-   We will generally refer to Quarto documents (with `.qmd` extension), e.g. *"Do this in your Quarto document"* and rarely discuss loading the Quarto
 
 ## Tour: Quarto
 
@@ -137,20 +123,17 @@ dataframe$var_name
 
 ## Environments
 
-[The environment of your Quarto document is separate from
-the]{.acidinline}
+[The environment of your Quarto document is separate from the]{.acidinline}
 
--   Remember this, and expect it to bite you a few times as you're
-    learning to work with Quarto!
+-   Remember this, and expect it to bite you a few times as you're learning to work with Quarto!
 
 ## Environments (Your turn)
 
-- Go to the Q-RaP and create a new project in the Spaces name FIN7028....
-- Click here to access [Q-RaP](https://sso.posit.cloud/q-rap?redirect=https%3A%2F%2Fposit.cloud%2Fspaces%2F211210%2Fjoin%3Faccess_code%3D0jJzcGhdja1HwVVMRYY-FZRlTIg8XNyvt7XzPw7g)
-
+-   Go to the Q-RaP and create a new project in the Spaces name FIN7028....
+-   Click here to access [Q-RaP](https://sso.posit.cloud/q-rap?redirect=https%3A%2F%2Fposit.cloud%2Fspaces%2F211210%2Fjoin%3Faccess_code%3D0jJzcGhdja1HwVVMRYY-FZRlTIg8XNyvt7XzPw7g)
 
 ::: columns
-::: {.column width="50%" .saltinline}
+::: {.column .saltinline width="50%"}
 -   First, run the following in the console
 
 ``` r
@@ -161,7 +144,7 @@ x * 3
 -   All looks good, eh?
 :::
 
-::: {.column width="50%" .fatinline}
+::: {.column .fatinline width="50%"}
 -   Then, add the following in an R chunk in your R Markdown document
 
 ``` r
@@ -172,12 +155,9 @@ What happens? Why the error?
 :::
 :::
 
-
-
 ## Quarto help
 
--   [Quarto
-    CheatSheet](https://rstudio.github.io/cheatsheets/html/quarto.html)
+-   [Quarto CheatSheet](https://rstudio.github.io/cheatsheets/html/quarto.html)
 
 OR
 
@@ -185,12 +165,11 @@ OR
 
 > Help -\> Markdown Quick Reference
 
-## How will we use Quarto?
+## How will we use Quarto?  {.saltinline}
 
--   Every lab / homework / project / etc. is an Quarto document
+-   Every lab / homework / project / mock /exam etc. is an Quarto document
 -   You'll always have a template Quarto document to start with
--   The amount of scaffolding in the template will decrease over the
-    semester
+-   The amount of scaffolding in the template will decrease over the semester
 
 ## What's with all the hexes?
 
@@ -198,8 +177,7 @@ OR
 knitr::include_graphics("img/hex-australia.png")
 ```
 
-[Mitchell O'Hara-Wild, [useR! 2018 feature
-wall](https://www.mitchelloharawild.com/blog/user-2018-feature-wall/)]{.footnote}
+[Mitchell O'Hara-Wild, [useR! 2018 feature wall](https://www.mitchelloharawild.com/blog/user-2018-feature-wall/)]{.footnote}
 
 ## Reading Data In (Your Turn)
 
@@ -207,10 +185,9 @@ wall](https://www.mitchelloharawild.com/blog/user-2018-feature-wall/)]{.footnote
 2.  Select the desired options for your data download, such as the region/country (e.g., World), theme/factor, data frequency (daily), and weighting method.
 3.  Click the 'Download' button to download the data in CSV format.
 
-
 ## Reading Data In (Your Turn)
 
-- Once you have downloaded the CSV file, you can load it into R using the following R code:
+-   Once you have downloaded the CSV file, you can load it into R using the following R code:
 
 ``` r
 data <- read.csv("path_to_your_downloaded_file.csv")
@@ -218,23 +195,23 @@ data <- read.csv("path_to_your_downloaded_file.csv")
 
 ## APIs and Databases {.smaller}
 
-- APIs and Databases are important in finance because of:
+-   APIs and Databases are important in finance because of:
 
-1. **Real-Time Data Access**: APIs enable efficient retrieval of live financial data from markets and institutions, essential for timely analysis and decision-making.
+1.  **Real-Time Data Access**: APIs enable efficient retrieval of live financial data from markets and institutions, essential for timely analysis and decision-making.
 
-2. **Data Accuracy and Automation**: APIs ensure direct access to accurate source data, reducing errors, and automating data collection for efficiency.
+2.  **Data Accuracy and Automation**: APIs ensure direct access to accurate source data, reducing errors, and automating data collection for efficiency.
 
-3. **Structured Data Management**: Databases provide structured storage and management of large volumes of financial data, enabling quick retrieval and manipulation.
+3.  **Structured Data Management**: Databases provide structured storage and management of large volumes of financial data, enabling quick retrieval and manipulation.
 
-4. **Data Integrity and Security**: Databases ensure data integrity and security, crucial for maintaining the reliability and confidentiality of financial information.
+4.  **Data Integrity and Security**: Databases ensure data integrity and security, crucial for maintaining the reliability and confidentiality of financial information.
 
-5. **Historical Data Analysis**: Databases are key for storing and analyzing historical financial data, aiding in trend analysis and predictive modeling.
+5.  **Historical Data Analysis**: Databases are key for storing and analyzing historical financial data, aiding in trend analysis and predictive modeling.
 
-6. **Scalability and Integration**: Both APIs and databases offer scalability for growing data volumes and integrate seamlessly with analytical tools for advanced financial analysis.
+6.  **Scalability and Integration**: Both APIs and databases offer scalability for growing data volumes and integrate seamlessly with analytical tools for advanced financial analysis.
 
 ## APIs and Databases (Your Turn)
 
-- Connecting to a financial API to fetch real-time stock data. 
+-   Connecting to a financial API to fetch real-time stock data.
 
 ```{r}
 # Assuming a package like tidyquant is installed
@@ -251,24 +228,26 @@ appl<-tq_get(symbol, from = start_date, to = end_date)
 
 ```
 
-
 ## 
 
-[**Data transformations** play a crucial role in preparing raw financial data for analysis, modeling, visualisation, and presentation purposes.]{.fat} 
+[**Data transformations** play a crucial role in preparing raw financial data for analysis, modeling, visualisation, and presentation purposes.]{.fat}
 
 ## Scaling Numerical Variables
 
-- Scaling numerical variables involves normalizing the range of variables to facilitate comparisons across disparate measures.
-- Two widely used scaling methods include standardization and normalization.
+-   Scaling numerical variables involves normalizing the range of variables to facilitate comparisons across disparate measures.
 
-- **Standardization**: Converts variables to zero-centered distributions with unit variance.
-- **Normalization**: Scales features between defined intervals (e.g., 0 to 1).
+-   Two widely used scaling methods include standardization and normalization.
+
+-   **Standardization**: Converts variables to zero-centered distributions with unit variance.
+
+-   **Normalization**: Scales features between defined intervals (e.g., 0 to 1).
 
 ## R Implementation Scaling
 
 Implement scaling using functions found in the `scale()` and `tsfe::rescale()` functions, both part of the built-in `base` package.
 
 **Example in R:**
+
 ```{R}
 set.seed(42)
 x <- rnorm(100, mean = 10, sd = 2)
@@ -278,38 +257,40 @@ tsfe::rescale_variable(x,0,1)
 
 ## Logarithmic Transformation
 
-- Applying logarithmic transformations helps mitigate skewness issues prevalent in certain types of financial data (i.e., exponential growth patterns).
+-   Applying logarithmic transformations helps mitigate skewness issues prevalent in certain types of financial data (i.e., exponential growth patterns).
 
-## Benefits of Logarithmic Transformation{.smaller}
+## Benefits of Logarithmic Transformation {.smaller}
 
-- Stabilizes variances.
-- Linearizes relationships among variables.
+-   Stabilises variances.
+-   Linearises relationships among variables.
 
-### R Implementation
+## R Implementation
 
-Utilize the `log()` function to implement logarithmic transformations.
+Utilise the `log()` function to implement logarithmic transformations.
 
 **Example in R:**
+
 ```{R}
 set.seed(42)
 y <- exp((rnorm(100, mean = 1, sd = 1)))
 log_y <- log(y + 1)  # Adding a constant prevents taking logs of negative numbers
 ```
 
-## Differencing Time Series Data{.smaller}
+## Differencing Time Series Data {.smaller}
 
-- Differencing is a technique often applied to stationarize nonstationary time series data. 
+-   Differencing is a technique often applied to stationarize nonstationary time series data.
 
 #### Stationarity in Time Series
 
-- Stationarity implies consistent statistical properties throughout the entire dataset.
-- Subtract consecutive observations to compute returns.
+-   Stationarity implies consistent statistical properties throughout the entire dataset.
+-   Subtract consecutive observations to compute returns.
 
 ## R Implementation
 
 Leverage the `lag()` and `diff()` functions to execute differencing.
 
 **Example in R:**
+
 ```{R}
 set.seed(42)
 closing_prices <- cumprod(rnorm(100, mean = 0.01, sd = 0.01))
@@ -323,15 +304,16 @@ Binning continuous variables categorizes quantitative values into distinct inter
 
 #### Strategies for Binning
 
-- Equal width
-- Equal frequency
-- Clustering algorithms
+-   Equal width
+-   Equal frequency
+-   Clustering algorithms
 
-#### R Implementation
+## R Implementation
 
 Employ the `cut()` and `findInterval()` functions to implement basic forms of binning.
 
 **Example in R:**
+
 ```{R}
 set.seed(42)
 age <- runif(1000, min = 0, max = 100)
@@ -344,14 +326,15 @@ Merging multiple datasets enables integration of complementary pieces of informa
 
 #### Types of Merges
 
-- Horizontal merges: Matching keys shared among records.
-- Vertical merges: Appending rows from one database onto another.
+-   Horizontal merges: Matching keys shared among records.
+-   Vertical merges: Appending rows from one database onto another.
 
-#### R Implementation
+## R Implementation
 
 Apply the `merge()`, `bind_rows()`, `bind_cols()`
 
 **Example in R:**
+
 ```{R}
 library(dplyr)
 set.seed(42)
@@ -367,15 +350,16 @@ Sometimes it becomes necessary to change the shape of a dataset from *long* to *
 
 ### Tools in R
 
-- `tidyr`
-- `tidyquant`
-- `janitor`
+-   `tidyr`
+-   `tidyquant`
+-   `janitor`
 
-#### R Implementation
+## R Implementation{.scrollable}
 
 First, ensure you have installed and loaded the necessary packages.
 
 **Example in R:**
+
 ```{r}
 library(tidyquant)
 library(tidyr)
@@ -384,11 +368,22 @@ library(janitor)
 
 Retrieve the historical stock data using the tidyquant API.
 
-#### Converting Long to Wide
+Next, retrieve the historical stock data using the tidyquant API:
+
+```{r}
+tickers <- c("AAPL", "MSFT")
+start_date <- as.Date("2020-01-01")
+end_date <- Sys.Date()
+financial_data <- tq_get(tickers, from = start_date, to = end_date)
+print(head(financial_data))
+```
+
+
+## Converting Long to Wide
 
 Use the `pivot_wider()` function to convert the data to a wide structure.
 
-**Example in R:**
+**Example in R:** 
 ```{R}
 financial_data_wide <- financial_data |>
   mutate(date = ymd(date)) |>
@@ -396,4 +391,11 @@ financial_data_wide <- financial_data |>
   pivot_wider(names_from =symbol, values_from = adjusted) |>
   clean_names() |>
   remove_empty(which = "rows") |>
-  relocate
+  relocate(date, .before = everything())
+
+print(head(financial_data_wide))
+```
+
+## Recap Question
+
+

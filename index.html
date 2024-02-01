@@ -97,6 +97,7 @@
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="mycssblend.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -411,7 +412,6 @@ Barry Quinn
 <li>Data Collection</li>
 <li>Data Processing</li>
 <li>Growth Mindset</li>
-<li>Asset Returns</li>
 </ul>
 </section>
 <section id="reproducible-financial-analytics" class="slide level2">
@@ -441,7 +441,7 @@ Barry Quinn
 <li>Literate programming (code, narrative, output in one place) <span class="math inline">\(\rightarrow\)</span> Quarto
 <ul>
 <li>Version control <span class="math inline">\(\rightarrow\)</span> Git / GitHub{.incremental}</li>
-<li><del>Version control <span class="math inline">\(\rightarrow\)</span> Git / GitHub</del></li>
+<li><del>Version control</del> <span class="math inline">\(\rightarrow\)</span> Git / GitHub</li>
 </ul></li>
 </ul>
 </section>
@@ -569,10 +569,10 @@ Barry Quinn
 <p>Help -&gt; Markdown Quick Reference</p>
 </blockquote>
 </section>
-<section id="how-will-we-use-quarto" class="slide level2">
+<section id="how-will-we-use-quarto" class="slide level2 saltinline">
 <h2>How will we use Quarto?</h2>
 <ul>
-<li>Every lab / homework / project / etc. is an Quarto document</li>
+<li>Every lab / homework / project / mock /exam etc. is an Quarto document</li>
 <li>You’ll always have a template Quarto document to start with</li>
 <li>The amount of scaffolding in the template will decrease over the semester</li>
 </ul>
@@ -686,11 +686,13 @@ Barry Quinn
 <section id="benefits-of-logarithmic-transformation" class="slide level2 smaller">
 <h2>Benefits of Logarithmic Transformation</h2>
 <ul>
-<li>Stabilizes variances.</li>
-<li>Linearizes relationships among variables.</li>
+<li>Stabilises variances.</li>
+<li>Linearises relationships among variables.</li>
 </ul>
-<h3 id="r-implementation">R Implementation</h3>
-<p>Utilize the <code>log()</code> function to implement logarithmic transformations.</p>
+</section>
+<section id="r-implementation" class="slide level2">
+<h2>R Implementation</h2>
+<p>Utilise the <code>log()</code> function to implement logarithmic transformations.</p>
 <p><strong>Example in R:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1"></a><span class="in">```{R}</span></span>
@@ -736,7 +738,9 @@ Barry Quinn
 <li>Equal frequency</li>
 <li>Clustering algorithms</li>
 </ul>
-<h4 id="r-implementation-2">R Implementation</h4>
+</section>
+<section id="r-implementation-2" class="slide level2">
+<h2>R Implementation</h2>
 <p>Employ the <code>cut()</code> and <code>findInterval()</code> functions to implement basic forms of binning.</p>
 <p><strong>Example in R:</strong></p>
 <div class="cell">
@@ -755,7 +759,9 @@ Barry Quinn
 <li>Horizontal merges: Matching keys shared among records.</li>
 <li>Vertical merges: Appending rows from one database onto another.</li>
 </ul>
-<h4 id="r-implementation-3">R Implementation</h4>
+</section>
+<section id="r-implementation-3" class="slide level2">
+<h2>R Implementation</h2>
 <p>Apply the <code>merge()</code>, <code>bind_rows()</code>, <code>bind_cols()</code></p>
 <p><strong>Example in R:</strong></p>
 <div class="cell">
@@ -778,7 +784,9 @@ Barry Quinn
 <li><code>tidyquant</code></li>
 <li><code>janitor</code></li>
 </ul>
-<h4 id="r-implementation-4">R Implementation</h4>
+</section>
+<section id="r-implementation-4" class="slide level2 scrollable">
+<h2>R Implementation</h2>
 <p>First, ensure you have installed and loaded the necessary packages.</p>
 <p><strong>Example in R:</strong></p>
 <div class="cell">
@@ -789,10 +797,59 @@ Barry Quinn
 <span id="cb16-5"><a href="#cb16-5"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Retrieve the historical stock data using the tidyquant API.</p>
-<h4 id="converting-long-to-wide">Converting Long to Wide</h4>
+<p>Next, retrieve the historical stock data using the tidyquant API:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1"></a><span class="in">```{r}</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>tickers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"AAPL"</span>, <span class="st">"MSFT"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3"></a>start_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2020-01-01"</span>)</span>
+<span id="cb17-4"><a href="#cb17-4"></a>end_date <span class="ot">&lt;-</span> <span class="fu">Sys.Date</span>()</span>
+<span id="cb17-5"><a href="#cb17-5"></a>financial_data <span class="ot">&lt;-</span> <span class="fu">tq_get</span>(tickers, <span class="at">from =</span> start_date, <span class="at">to =</span> end_date)</span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="fu">print</span>(<span class="fu">head</span>(financial_data))</span>
+<span id="cb17-7"><a href="#cb17-7"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  symbol date        open  high   low close    volume adjusted
+  &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 AAPL   2020-01-02  74.1  75.2  73.8  75.1 135480400     73.2
+2 AAPL   2020-01-03  74.3  75.1  74.1  74.4 146322800     72.4
+3 AAPL   2020-01-06  73.4  75.0  73.2  74.9 118387200     73.0
+4 AAPL   2020-01-07  75.0  75.2  74.4  74.6 108872000     72.7
+5 AAPL   2020-01-08  74.3  76.1  74.3  75.8 132079200     73.8
+6 AAPL   2020-01-09  76.8  77.6  76.6  77.4 170108400     75.4</code></pre>
+</div>
+</div>
+</section>
+<section id="converting-long-to-wide" class="slide level2">
+<h2>Converting Long to Wide</h2>
 <p>Use the <code>pivot_wider()</code> function to convert the data to a wide structure.</p>
 <p><strong>Example in R:</strong></p>
-<p>financial_data_wide &lt;- financial_data |&gt; mutate(date = ymd(date)) |&gt; select(date,symbol,adjusted) |&gt; pivot_wider(names_from =symbol, values_from = adjusted) |&gt; clean_names() |&gt; remove_empty(which = “rows”) |&gt; relocate</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1"></a><span class="in">```{R}</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>financial_data_wide <span class="ot">&lt;-</span> financial_data <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">ymd</span>(date)) <span class="sc">|&gt;</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a>  <span class="fu">select</span>(date,symbol,adjusted) <span class="sc">|&gt;</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span>symbol, <span class="at">values_from =</span> adjusted) <span class="sc">|&gt;</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a>  <span class="fu">remove_empty</span>(<span class="at">which =</span> <span class="st">"rows"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a>  <span class="fu">relocate</span>(date, <span class="at">.before =</span> <span class="fu">everything</span>())</span>
+<span id="cb19-9"><a href="#cb19-9"></a></span>
+<span id="cb19-10"><a href="#cb19-10"></a><span class="fu">print</span>(<span class="fu">head</span>(financial_data_wide))</span>
+<span id="cb19-11"><a href="#cb19-11"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  date        aapl  msft
+  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt;
+1 2020-01-02  73.2  155.
+2 2020-01-03  72.4  153.
+3 2020-01-06  73.0  153.
+4 2020-01-07  72.7  152.
+5 2020-01-08  73.8  154.
+6 2020-01-09  75.4  156.</code></pre>
+</div>
+</div>
+</section>
+<section id="recap-question" class="slide level2">
+<h2>Recap Question</h2>
 
 <img src="img/qmslogo.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
