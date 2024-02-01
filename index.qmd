@@ -1,9 +1,9 @@
 ---
-title: "Toolkit + Returns" 
+title: "Toolkit" 
 subtitle: "Advanced Financial Data Analytics"
 author: "Barry Quinn"
 date: "`r Sys.Date()`"
-css: mycssblend.css
+#css: mycssblend.css
 execute: 
   echo: fenced
 format: 
@@ -47,10 +47,10 @@ format:
 
 ## Toolkit for reproducibility
 
--   Scriptability $\rightarrow$ R
--   Literate programming (code, narrative, output in one place)
-    $\rightarrow$ Quarto
--   Version control $\rightarrow$ Git / GitHub
+- Scriptability $\rightarrow$ R
+- Literate programming (code, narrative, output in one place) $\rightarrow$ Quarto
+  -   Version control $\rightarrow$ Git / GitHub{.incremental}
+  - ~~Version control $\rightarrow$ Git / GitHub~~
 
 ## R packages
 
