@@ -27,16 +27,14 @@ This interactive tutorial will guide the learner through multiple-choice questio
 What does it mean for financial analytics to be "reproducible"?
 
 ```{r question-1, echo=FALSE}
-multiple_choice(
+quiz(
   question = "What does it mean for financial analytics to be 'reproducible'?",
-  choices = c(
-    "The results can only be achieved once and cannot be duplicated.",
-    "The analysis can be repeated by others, using the same data and code to achieve the same results.",
-    "The analysis is conducted without the use of scripts or version control.",
-    "Only the original author can reproduce the analysis."
-  ),
-  correct = "The analysis can be repeated by others, using the same data and code to achieve the same results.",
-  feedback = c(
+  answer("The results can only be achieved once and cannot be duplicated."),
+    answer("The analysis can be repeated by others, using the same data and code to achieve the same results.",correct = TRUE),
+    answer("The analysis is conducted without the use of scripts or version control."),
+    answer("Only the original author can reproduce the analysis."),
+  "The analysis can be repeated by others, using the same data and code to achieve the same results.",
+  incorrect = c(
     "Incorrect. Reproducible analytics means the results can be duplicated by others using the same resources.",
     "Correct! Reproducible analytics ensures that anyone can replicate the results using the same data and code.",
     "Incorrect. The use of scripts and version control is often crucial for reproducibility.",
@@ -50,16 +48,13 @@ multiple_choice(
 Which of the following tools is NOT directly associated with reproducible financial analytics?
 
 ```{r question-2, echo=FALSE}
-multiple_choice(
+quiz(
   question = "Which of the following tools is NOT directly associated with reproducible financial analytics?",
-  choices = c(
-    "R",
-    "Quarto",
-    "Git / GitHub",
-    "PowerPoint"
-  ),
-  correct = "PowerPoint",
-  feedback = c(
+  answer("R"),
+    answer("Quarto"),
+    answer("Git / GitHub"),
+    answer("PowerPoint",correct = TRUE),
+  incorrect = c(
     "Incorrect. R is a fundamental tool for statistical computing and analytics.",
     "Incorrect. Quarto is used for literate programming, integrating code, narrative, and output.",
     "Incorrect. Git / GitHub is essential for version control and sharing code.",
@@ -73,16 +68,13 @@ multiple_choice(
 As of September 2020, approximately how many R packages were available on CRAN?
 
 ```{r question-3, echo=FALSE}
-multiple_choice(
+quiz(
   question = "As of September 2020, approximately how many R packages were available on CRAN?",
-  choices = c(
-    "Over 1,600",
-    "Over 16,000",
-    "Over 160,000",
-    "Over 6,000"
-  ),
-  correct = "Over 16,000",
-  feedback = c(
+ answer("Over 1,600"),
+    answer("Over 16,000",correct = TRUE),
+    answer("Over 160,000"),
+    answer("Over 6,000"),
+  incorrect = c(
     "Incorrect. There were significantly more than 1,600 packages.",
     "Correct! As of September 2020, there were over 16,000 R packages available on CRAN.",
     "Incorrect. The number is large, but not quite that large.",
@@ -96,21 +88,17 @@ multiple_choice(
 In R, how can you access documentation for a specific function, such as `mean`?
 
 ```{r question-4, echo=FALSE}
-multiple_choice(
+quiz(
   question = "In R, how can you access documentation for a specific function, such as `mean`?",
-  choices = c(
-    "mean?",
-    "?mean",
-    "help(mean)",
-    "All of the above"
-  ),
-  correct = "?mean",
-  feedback = c(
+  answer("mean?"),
+    answer("?mean",correct = TRUE),
+    answer("help(mean)"),
+    answer("All of the above"),
+  incorrect = c(
     "Incorrect. The correct syntax uses a question mark before the function name.",
     "Correct! Prepending a question mark to the function name is the standard way to access its documentation.",
     "Incorrect. While `help(mean)` is a valid command, the syntax provided in the options is incorrect for this context.",
-    "Incorrect. Only the second option is the conventional method to access documentation for a specific function in R."
-  )
+    "Incorrect. Only the second option is the conventional method to access documentation for a specific function in R.")
 )
 ```
 
@@ -119,18 +107,16 @@ multiple_choice(
 Why are APIs and databases considered crucial in financial data analytics? Select all that apply:
 
 ```{r question-5, echo=FALSE}
-multiple_choice(
+quiz(
  
 
  question = "Why are APIs and databases considered crucial in financial data analytics? Select all that apply:",
-  choices = c(
-    "They allow for real-time data access.",
-    "They enable automatic updating of financial models.",
-    "They provide structured data management for large volumes of data.",
-    "They can only be used by experienced data scientists."
+  answer("They allow for real-time data access.",correct = TRUE),
+    answer("They enable automatic updating of financial models."),
+    answer("They provide structured data management for large volumes of data.",correct=TRUE),
+    answer("They can only be used by experienced data scientists."
   ),
-  correct = c("They allow for real-time data access.", "They provide structured data management for large volumes of data."),
-  feedback = c(
+incorrect = c(
     "Correct. Real-time data access is crucial for timely financial analysis.",
     "This statement is misleading. While APIs and databases facilitate data access and management, they don't automatically update financial models; the models need to be designed to incorporate new data.",
     "Correct. Structured data management is essential for handling and analyzing large volumes of financial data efficiently.",
